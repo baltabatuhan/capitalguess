@@ -1,23 +1,26 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import WorldMap from 'react-svg-worldmap';
+import serializer from "./components/Countries";
+import CountriesCapital from "./components/CountriesCapital"
 
-import "./styles.css";
+console.log(CountriesCapital());
 
-const geoUrl =
-  "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-const App = () => (
-  <div>
-    <h1>Capital Guess</h1>
-    <ComposableMap>
-      <Geographies geography={geoUrl} x="10" y="10" width="100" height="100" fill="orange" stroke="green" stroke-opacity="0.8" border-color="red" stroke-linecap="butt" >
-        {({ geographies }) =>
-          geographies.map(geo => <Geography key={geo.rsmKey} geography={geo} />)
-        }
-      </Geographies>
-    </ComposableMap>
-  </div>
-);
+// console.log(serializer())
+function App() {
+  const data = serializer();
+
+  return (
+    <div className="App">
+      <WorldMap
+        color="red"
+        title="Capital Guess Game"
+        value-suffix="people"
+        size="lg"
+        data={data}
+      />
+    </div>
+  );
+}
 
 export default App;
