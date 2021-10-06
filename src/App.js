@@ -1,7 +1,5 @@
 
 import WorldMap from 'react-svg-worldmap';
-import serializer from "./components/Countries";
-// import CountriesCapital from './components/CountriesCapital';
 import axios from "axios";
 import {useEffect,useState} from "react";
 
@@ -14,33 +12,78 @@ import {useEffect,useState} from "react";
 
 function App() {
   
+  
 
   const [countries,setCountries] = useState([]);
+  
+  const handleClick1 = () => {
+    // Counter state is incremented
+    setCounter(Math.floor(Math.random() *countries.length))
+  }
 
+  const handleClick2 = () => {
+    // Counter state is incremented
+    setCounter(counter - 1)
+  }
 
   useEffect(() =>{
       axios
       .get('https://restcountries.com/v3.1/all')
-      .then(response=>setCountries(response.data))
+      .then(response=> setCountries(response.data.map(country=>({...countries,country:country.cca2, value:0,name:country.name.common,capital:country.capital}))))
+
+      .catch(error => console.log({ error }));
+
       
   },[])
-  const tata = serializer();
- 
-  return (
+  const [counter, setCounter] = useState(0)
+  console.log(countries)
 
+ if (countries.length===0){
+   return <div>loading...</div>
+ }
+  return (
+      
     
-    <div className="App">
+    <div className="World Map">
       <WorldMap
         color="red"
         title="Capital Guess Game"
         value-suffix="people"
         size="lg"
-        data={tata}
+        data={countries}
       />
-    {/* <CountriesCapital/> */}
-    
+        
+     
       
+       <div className="question-form">
+      <div key={countries.name}>
+         <h2>What is the capital of {countries[counter].name} ?</h2>
+        <div className="buttons">
+        <button style={{
+          fontSize: '60%',
+          position: 'relative',
+          top: '20vh',
+          marginRight: '5px',
+          backgroundColor: 'green',
+          borderRadius: '8%',
+          color: 'white',
+        }}
+          onClick={handleClick1}>Get Country</button>
+        <button style={{
+          fontSize: '60%',
+          position: 'relative',
+          top: '20vh',
+          marginLeft: '5px',
+          backgroundColor: 'red',
+          borderRadius: '8%',
+          color: 'white',
+        }}
+          onClick={handleClick2}>Decrement</button>
+      </div>
     </div>
+        </div>
+      </div>
+    
   );
 }
 
