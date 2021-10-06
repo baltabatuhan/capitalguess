@@ -37,6 +37,14 @@ function App() {
   },[])
   const [counter, setCounter] = useState(0)
   console.log(countries)
+  
+  
+  const [cap, setCap] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert('The name you entered was: ${cap}')
+  }
 
  if (countries.length===0){
    return <div>loading...</div>
@@ -57,8 +65,27 @@ function App() {
       
        <div className="question-form">
       <div key={countries.name}>
-         <h2>What is the capital of {countries[counter].name} ?</h2>
-        <div className="buttons">
+      <h2>What is the capital of {countries[counter].name} ?</h2>
+      <form onSubmit={handleSubmit}>
+      <label>Capital:
+        <input 
+          type="text" 
+          value={cap}
+          onChange={(e) => setCap(e.target.value)}
+        />
+      </label>
+      <input type="submit" />
+    </form>
+        
+        
+        
+        
+        
+        
+        
+        
+         {/* <h2>What is the capital of {countries[counter].name} ?</h2> */}
+        {/* <div className="buttons">
         <button style={{
           fontSize: '60%',
           position: 'relative',
@@ -79,7 +106,7 @@ function App() {
           color: 'white',
         }}
           onClick={handleClick2}>Decrement</button>
-      </div>
+      </div> */}
     </div>
         </div>
       </div>
