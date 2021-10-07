@@ -13,7 +13,7 @@ import {useEffect,useState} from "react";
 function App() {
   
   
-
+  const [point,setPoint]= useState(0)
   const [countries,setCountries] = useState([]);
   
   const handleClick1 = () => {
@@ -21,10 +21,7 @@ function App() {
     setCounter(Math.floor(Math.random() *countries.length))
   }
 
-  const handleClick2 = () => {
-    // Counter state is incremented
-    setCounter(counter - 1)
-  }
+
 
   useEffect(() =>{
       axios
@@ -43,7 +40,16 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert('The name you entered was: ${cap}')
+    if(cap===`${countries[counter].capital[0]}`){
+      alert('correct')
+      setCounter(Math.floor(Math.random() *countries.length))
+      setPoint(point + 10)
+      countries[counter].value = countries[counter].value + 1 
+      
+    }else{
+      alert('wrong');
+      setPoint(point - 10)
+    }
   }
 
  if (countries.length===0){
@@ -53,6 +59,7 @@ function App() {
       
     
     <div className="World Map">
+      <h1>Point:{point}</h1>
       <WorldMap
         color="red"
         title="Capital Guess Game"
