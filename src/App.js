@@ -33,8 +33,11 @@ function App() {
       
   },[])
   const [counter, setCounter] = useState(0)
-  console.log(countries)
   
+  const skip = () => {
+    setCounter(Math.floor(Math.random() *countries.length))
+    console.log(countries[counter].capital[0])
+  }
   
   const [cap, setCap] = useState("");
 
@@ -46,12 +49,9 @@ function App() {
       setPoint(point + 10)
       countries[counter].value = countries[counter].value + 1 
       
-    }else{
-      alert('wrong');
-      setPoint(point - 10)
     }
   }
-
+  
  if (countries.length===0){
    return <div>loading...</div>
  }
@@ -73,6 +73,7 @@ function App() {
        <div className="question-form">
       <div key={countries.name}>
       <h2>What is the capital of {countries[counter].name} ?</h2>
+      
       <form onSubmit={handleSubmit}>
       <label>Capital:
         <input 
@@ -80,6 +81,7 @@ function App() {
           value={cap}
           onChange={(e) => setCap(e.target.value)}
         />
+         <button onClick={skip}>Skip</button>
       </label>
       <input type="submit" />
     </form>
@@ -91,29 +93,7 @@ function App() {
         
         
         
-         {/* <h2>What is the capital of {countries[counter].name} ?</h2> */}
-        {/* <div className="buttons">
-        <button style={{
-          fontSize: '60%',
-          position: 'relative',
-          top: '20vh',
-          marginRight: '5px',
-          backgroundColor: 'green',
-          borderRadius: '8%',
-          color: 'white',
-        }}
-          onClick={handleClick1}>Get Country</button>
-        <button style={{
-          fontSize: '60%',
-          position: 'relative',
-          top: '20vh',
-          marginLeft: '5px',
-          backgroundColor: 'red',
-          borderRadius: '8%',
-          color: 'white',
-        }}
-          onClick={handleClick2}>Decrement</button>
-      </div> */}
+         
     </div>
         </div>
       </div>
