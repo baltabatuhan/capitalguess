@@ -15,58 +15,60 @@ function App() {
   
   const [point,setPoint]= useState(0)
   const [countries,setCountries] = useState([]);
-  
-  const handleClick1 = () => {
-    // Counter state is incremented
-    setCounter(Math.floor(Math.random() *countries.length))
-  }
+
 
 
 
   useEffect(() =>{
       axios
       .get('https://restcountries.com/v3.1/all')
-      .then(response=> setCountries(response.data.map(country=>({...countries,country:country.cca2, value:0,name:country.name.common,capital:country.capital}))))
-
+      .then(response=> setCountries(response.data.map(country=>({...countries,country:country.cca2, value:0,name:country.name.common,capital:country.capital,population:country.population,flag:country.flag}))))
+      
       .catch(error => console.log({ error }));
 
       
   },[])
   const [counter, setCounter] = useState(0)
+  let newCountries = countries.filter(check => check.capital !== undefined)
+ 
   
-  const skip = () => {
-    setCounter(Math.floor(Math.random() *countries.length))
-    console.log(countries[counter].capital)
-  }
+ 
+ 
   
   const [cap, setCap] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(cap.toLowerCase()===`${(countries[counter].capital[0].toLowerCase()).normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`){
+    
+    if(cap.toLowerCase()===`${(newCountries[counter].capital[0].toLowerCase()).normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`){
+
       
       alert('correct')
-      setCounter(Math.floor(Math.random() *countries.length))
+      setCounter(Math.floor(Math.random() *newCountries.length))
       setPoint(point + 10)
-      countries[counter].value = countries[counter].value + 1 
+      newCountries[counter].value = newCountries[counter].value + 1 
       
     }
+  
+ 
   }
-  console.log(cap,"Zaza")
-
-  if (countries.value===1){
-    return setCounter(counter+1)
-  }  
+  
 
 
- if (countries.length===0){
+
+
+ if (newCountries.length===0){
    return <div>loading...</div>
  }
- 
 
- if (countries[counter].length===1){
-  return setCounter(counter+1)
+ const skip = () => {
+    
+  setCounter(Math.floor(Math.random() *newCountries.length))
+  console.log(newCountries[counter].name,newCountries[counter].capital,"check")
+ 
+  
 }
+
   return (
       
     
@@ -74,7 +76,6 @@ function App() {
       <h1>Point:{point}</h1>
       <WorldMap
         color="green"
-        title="Capital Guess Game"
         value-suffix="people"
         size="lg"
         data={countries}
@@ -83,8 +84,10 @@ function App() {
      
       
        <div className="question-form">
-      <div key={countries.name}>
-      <h2>What is the capital of {countries[counter].name} ?</h2>
+       
+      <div key={newCountries.name}>
+      <h2>What is the capital of {newCountries[counter].name} ?</h2>
+      
       
       <form onSubmit={handleSubmit}>
       <label>Capital:
