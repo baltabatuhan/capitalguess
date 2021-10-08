@@ -2,7 +2,8 @@
 import WorldMap from 'react-svg-worldmap';
 import axios from "axios";
 import {useEffect,useState} from "react";
-
+import "./styles.css";
+import { Row, Col } from 'antd';
 
 
 
@@ -70,23 +71,22 @@ function App() {
 }
 
   return (
-      
-    
+
+     <Row>
+   <Col flex={2}>
     <div className="World Map">
       <h1>Point:{point}</h1>
       <WorldMap
         color="green"
         value-suffix="people"
-        size="lg"
+        size="md"
         data={countries}
+        style={{width:"50%"}}
       />
-        
-     
-      
-       <div className="question-form">
-       
-      <div key={newCountries.name}>
-      <h2>What is the capital of {newCountries[counter].name} ?</h2>
+      </div>
+    </Col>
+    <Col flex={3} className="answerForm">
+          <h2>What is the capital of {newCountries[counter].name} ?</h2>
       
       
       <form onSubmit={handleSubmit}>
@@ -101,19 +101,9 @@ function App() {
       </label>
       <input type="submit" />
     </form>
-        
-        
-        
-        
-        
-        
-        
-        
-         
-    </div>
-        </div>
-      </div>
     
+    </Col>
+  </Row>
   );
 }
 

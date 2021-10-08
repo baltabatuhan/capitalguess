@@ -17,3 +17,9 @@ html {
     text-align: center;
   }
   
+  .World.Map{
+    width: 45%;
+    
+    align-items: center;
+  }
+ 
