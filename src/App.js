@@ -36,14 +36,15 @@ function App() {
   
   const skip = () => {
     setCounter(Math.floor(Math.random() *countries.length))
-    console.log(countries[counter].capital[0])
+    console.log(countries[counter].capital)
   }
   
   const [cap, setCap] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if(cap===`${countries[counter].capital[0]}`){
+    if(cap.toLowerCase()===`${(countries[counter].capital[0].toLowerCase()).normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`){
+      
       alert('correct')
       setCounter(Math.floor(Math.random() *countries.length))
       setPoint(point + 10)
@@ -51,17 +52,28 @@ function App() {
       
     }
   }
-  
+  console.log(cap,"Zaza")
+
+  if (countries.value===1){
+    return setCounter(counter+1)
+  }  
+
+
  if (countries.length===0){
    return <div>loading...</div>
  }
+ 
+
+ if (countries[counter].length===1){
+  return setCounter(counter+1)
+}
   return (
       
     
     <div className="World Map">
       <h1>Point:{point}</h1>
       <WorldMap
-        color="red"
+        color="green"
         title="Capital Guess Game"
         value-suffix="people"
         size="lg"
@@ -80,6 +92,7 @@ function App() {
           type="text" 
           value={cap}
           onChange={(e) => setCap(e.target.value)}
+          
         />
          <button onClick={skip}>Skip</button>
       </label>
