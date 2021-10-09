@@ -69,7 +69,9 @@ function Capital() {
   const [cap, setCap] = useState("");
 
   const handleSubmit = (event) => {
+    
     event.preventDefault();
+    
     
     if(cap.toLowerCase()===`${(newCountries[counter].capital[0].toLowerCase()).normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`){
 
@@ -80,8 +82,8 @@ function Capital() {
       newCountries[counter].value = newCountries[counter].value + 1 
       console.log(newCountries)
       setCap("")
-      
     }
+    
   
  
   }
@@ -133,11 +135,11 @@ function Capital() {
           type="text" 
           value={cap}
           onChange={(e) => setCap(e.target.value)}
-          
+          style={{backgroundColor:"#D6AD60",color:"#223241"}}
         />
-         <button onClick={skip}>Skip</button>
+         <button onClick={skip} style={{backgroundColor:"#D6AD60",color:"#223241"}}>Skip</button>
       </label>
-      <input type="submit" />
+      <input type="submit" style={{backgroundColor:"#D6AD60"}}/>
     </form>
     
    
