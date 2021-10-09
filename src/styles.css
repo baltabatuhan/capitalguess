@@ -1,25 +1,19 @@
-html {
-    font-family: system-ui, sans-serif;
-    font-size: 1.25rem;
-  }
+html, body, #root{
+  height: 100%;}
+
+
+.height-100{
+    height: 100%;
+}
+
+.question-form{
+  margin-left: 15%;
+  margin-top: 15%;
+  width: 100%;
   
-  body {
-    margin: 0;
-  }
+}
+
+.WorldMap{
+  text-align: center;
   
-  svg {
-    display: inline-block;
-    vertical-align: middle;
-  }
-  
-  .App {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  
-  .World.Map{
-    width: 45%;
-    
-    align-items: center;
-  }
- 
+}

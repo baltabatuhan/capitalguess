@@ -3,9 +3,10 @@ import WorldMap from 'react-svg-worldmap';
 import axios from "axios";
 import {useEffect,useState} from "react";
 import "./styles.css";
-import { Row, Col } from 'antd';
+import { Layout, Col,Menu } from 'antd';
 
 
+const { Header, Footer, Content } = Layout;
 
 
 
@@ -23,15 +24,16 @@ function App() {
   useEffect(() =>{
       axios
       .get('https://restcountries.com/v3.1/all')
-      .then(response=> setCountries(response.data.map(country=>({...countries,country:country.cca2, value:0,name:country.name.common,capital:country.capital,population:country.population,flag:country.flag}))))
+      .then(response=> setCountries(response.data.map(country=>({...countries,country:country.cca2, value:0,name:country.name.common,capital:country.capital,population:country.population,flag:country.flag,independent:country.independent}))))
       
       .catch(error => console.log({ error }));
 
       
   },[])
   const [counter, setCounter] = useState(0)
-  let newCountries = countries.filter(check => check.capital !== undefined)
+  let newCountries = countries.filter(check => check.capital !== undefined && check.value===0 && check.independent === true )
  
+
   
  
  
@@ -44,10 +46,12 @@ function App() {
     if(cap.toLowerCase()===`${(newCountries[counter].capital[0].toLowerCase()).normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`){
 
       
-      alert('correct')
+      
       setCounter(Math.floor(Math.random() *newCountries.length))
       setPoint(point + 10)
       newCountries[counter].value = newCountries[counter].value + 1 
+      console.log(newCountries)
+      setCap("")
       
     }
   
@@ -72,25 +76,35 @@ function App() {
 
   return (
 
-     <Row>
-   <Col flex={2}>
-    <div className="World Map">
+  <Layout className="height-100">
+      <Header className="header">
+        
+        <Menu theme="dark" mode="horizontal">
+          <Menu.Item key="1">Capital</Menu.Item>
+          <Menu.Item key="2">Flag</Menu.Item>
+          
+        </Menu>
+      </Header>
+      <Content style={{ display:"flex", justifyContent:"center",backgroundColor:"white"}}>   
+   
+    <div className="WorldMap">
       <h1>Point:{point}</h1>
       <WorldMap
         color="green"
         value-suffix="people"
-        size="md"
+        size={1100}
         data={countries}
-        style={{width:"50%"}}
+        
       />
       </div>
-    </Col>
-    <Col flex={3} className="answerForm">
-          <h2>What is the capital of {newCountries[counter].name} ?</h2>
+    
+    <div className="question-form">
+      
+      <h1>What is the capital of {newCountries[counter].name} ?</h1>
       
       
       <form onSubmit={handleSubmit}>
-      <label>Capital:
+      <label>
         <input 
           type="text" 
           value={cap}
@@ -102,8 +116,11 @@ function App() {
       <input type="submit" />
     </form>
     
-    </Col>
-  </Row>
+   
+    </div>
+    </Content>
+    <Footer style={{ textAlign: "center" }}>Created by Batuhan Balta</Footer>
+  </Layout>
   );
 }
 
