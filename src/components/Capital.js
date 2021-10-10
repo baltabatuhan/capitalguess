@@ -10,26 +10,6 @@ const {  Content } = Layout;
 
 
 
-const stylingFunction = ({
-    countryValue,
-    
-    minValue,
-    maxValue,
-    color,
-  }) => {
-    const opacityLevel = countryValue
-      ? 0.1 + (1.5 * (countryValue - minValue)) / (maxValue - minValue)
-      : 0;
-    return {
-      fill: color,
-      fillOpacity: opacityLevel,
-      stroke: '#D6AD60',
-      strokeWidth: 1,
-      strokeOpacity: 0.2,
-      cursor: 'pointer',
-    };
-  };
-
 
 
 
@@ -62,6 +42,26 @@ function Capital() {
     };
   };
   
+
+  const stylingFunction = ({
+    countryValue,
+    
+    minValue,
+    maxValue,
+    color,
+  }) => {
+    const opacityLevel = countryValue
+      ? 0.1 + (1.5 * (countryValue - minValue)) / (maxValue - minValue)
+      : 0;
+    return {
+      fill:  color,
+      fillOpacity: opacityLevel,
+      stroke: '#D6AD60',
+      strokeWidth: 1,
+      strokeOpacity: 0.2,
+      cursor: 'pointer',
+    };
+  };
 
  
  

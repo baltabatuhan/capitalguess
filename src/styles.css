@@ -26,3 +26,31 @@ svg{
   background-color:#223241;
   
 }
+
+
+.point h1{
+  margin-left:45%;
+  font-size:40px;
+  
+}
+
+.flagGame img{
+  margin-left:40%
+}
+
+.flagGame .form {
+  margin-top:2%;
+  
+}
+
+
+
+.flagGame .form h1{
+    font-size:30px;
+    margin-left:41%;
+}
+
+.flagGame .form form{
+  
+  margin-left:42%;
+}

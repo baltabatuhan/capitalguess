@@ -75,19 +75,22 @@ const Flag = () => {
 
 
 
+
     return(
         <Layout className="height-100" style={{ backgroundColor:"#223241"}}>
       
-    <Content style={{ display:"flex", justifyContent:"center",backgroundColor:"#223241"}}>   
+    <Content style={{backgroundColor:"#223241"}}>   
    
     
     
-    <div className="flagGame">
-    <h1 style={{color:"#D6AD60",paddingLeft:"18%"}}>Point:{point}</h1>
+    <div className="flagGame" >
+      <div className="point">
+    <h1 style={{color:"#D6AD60"}}>Point:{point}</h1>
+      </div>
     <img src={newCountries[counter].flag} alt="image" style={{ width: "350px" }}/>
+    
+    <div className="form">
       <h1 style={{color:"#D6AD60"}} >Which country is this ?</h1>
-      
-      
       <form onSubmit={handleSubmit}>
       <label>
         <input 
@@ -100,8 +103,15 @@ const Flag = () => {
       </label>
       <input type="submit" style={{backgroundColor:"#D6AD60"}}/>
     </form>
-    
-   
+    </div>
+    <div>
+      {newCountries.map((name) => (
+        <h1>
+          {name.name}
+          
+        </h1>
+      ))}
+    </div>
     </div>
     </Content>
     
