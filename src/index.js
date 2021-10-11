@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import 'antd/dist/antd.css';
 import { BrowserRouter as Router } from "react-router-dom";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 
 ReactDOM.render(
   <Router>

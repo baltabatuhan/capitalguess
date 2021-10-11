@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "../styles.css";
 import { Layout } from 'antd';
-
+import { MDBIcon } from 'mdb-react-ui-kit';
 
 const { Content } = Layout;
 
@@ -141,7 +141,10 @@ function Capital() {
             </label>
             <input type="submit" style={{ backgroundColor: "#D6AD60" }} />
           </form>
+          <div className="information">
+            <MDBIcon icon='info' size='xs' style={{ paddingLeft: "8%" }}>    Click on the countries for get information</MDBIcon>
 
+          </div>
 
         </div>
       </Content>

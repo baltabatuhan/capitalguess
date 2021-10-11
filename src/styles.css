@@ -1,58 +1,49 @@
-html, body, #root{
+html,
+body,
+#root {
   height: 100%;
-  background-color:#223241;
+  background-color: #223241;
 }
 
-
-.height-100{
-    height: 100%;
-    background-color:#223241;
+.height-100 {
+  height: 100%;
+  background-color: #223241;
 }
 
-.question-form{
+.question-form {
   margin-left: 15%;
   margin-top: 15%;
   width: 100%;
-  
-
-  
 }
-svg{
-  background-color:#223241;
+svg {
+  background-color: #223241;
 }
 
-.WorldMap{
+.WorldMap {
   text-align: center;
-  background-color:#223241;
-  
+  background-color: #223241;
 }
 
-
-.point h1{
-  margin-left:45%;
-  font-size:40px;
-  
+.point h1 {
+  margin-left: 45%;
+  font-size: 40px;
 }
 
-.flagGame img{
-  margin-left:40%
+.flagGame img {
+  margin-left: 40%;
 }
 
 .flagGame .form {
-  margin-top:2%;
-  
+  margin-top: 2%;
 }
 
-
-
-.flagGame .form h1{
-    font-size:30px;
-    margin-left:41%;
+.flagGame .form h1 {
+  font-size: 30px;
+  margin-left: 41%;
 }
 
-.flagGame .form form{
-  
-  margin-left:42%;
+.flagGame .form form {
+  margin-left: 42%;
 }
 
-
+/* countriesSpan */

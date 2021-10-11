@@ -95,22 +95,27 @@ const Flag = () => {
               </button>
             </form>
           </div>
-          <div className="countriesName">
+          <div className="countriesSpan" style={{ fontWeight: "bold", width: "70%", marginLeft: "15%", marginTop: "3%" }}>
             {newCountries
               .map((name) => {
                 console.log({ ...name });
                 return <span
+                  className="flex-sm-nowrap"
                   key={name.name}
                   style={{
-                    color: name.value === 1 ? "#daff7d" : "#D6AD60",
-                    fontWeight: "bold",
+                    margin: "3px",
+                    padding: "3px",
+                    color: name.value === 1 ? "#223241" : "#D6AD60",
+                    backgroundColor: name.value === 1 ? "#D6AD60" : "#223241",
+
+
                   }}
                 >
                   {name.name}
                 </span>
               }
-              )
-              .reduce((prev, curr) => [prev, " - ", curr])}
+              ).reduce((prev, curr) => [prev, "  ", curr])}
+
           </div>
         </div>
       </Content>
