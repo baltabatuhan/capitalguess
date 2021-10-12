@@ -15,6 +15,7 @@
     "react-scripts": "4.0.3",
     "react-simple-maps": "^2.3.0",
     "react-svg-worldmap": "^2.0.0-alpha.0",
+    "sass": "^1.42.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

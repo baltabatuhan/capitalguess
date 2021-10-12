@@ -72,9 +72,10 @@ const Flag = () => {
             <h1 style={{ color: "#D6AD60" }}>Point:{point}</h1>
           </div>
           <img
+            className="countryFlag"
             src={newCountries[counter].flag}
             alt="image"
-            style={{ width: "350px" }}
+
           />
 
           <div className="form">

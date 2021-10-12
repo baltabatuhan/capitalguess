@@ -15,6 +15,12 @@ body,
   margin-top: 15%;
   width: 100%;
 }
+
+.capital-question-form {
+  margin-left: 15%;
+  margin-top: 15%;
+  width: 100%;
+}
 svg {
   background-color: #223241;
 }
@@ -46,4 +52,96 @@ svg {
   margin-left: 42%;
 }
 
-/* countriesSpan */
+.capital-question-form button {
+  margin-left: 4px;
+}
+
+.capital-question-form input {
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.information {
+  margin-left: 6%;
+  margin-top: 3%;
+}
+
+.form button {
+  margin-left: 4px;
+}
+
+.countryFlag {
+  width: 350px;
+}
+
+@media (max-width: 800px) {
+  .flagGame img {
+    width: 250px;
+    margin-left: 30%;
+  }
+  .flagGame .form h1 {
+    font-size: 22px;
+    margin-left: 30%;
+  }
+  .flagGame .form form {
+    margin-left: 27%;
+  }
+
+  .countriesSpan {
+    font-size: 12px;
+    width: 50%;
+  }
+  .point h1 {
+    font-size: 35px;
+    margin-left: 37%;
+  }
+}
+
+@media (max-width: 1096px) {
+  .flagGame img {
+    width: 300px;
+    margin-left: 30%;
+  }
+  .point h1 {
+    font-size: 35px;
+    margin-left: 37%;
+  }
+  .flagGame .form form {
+    margin-left: 30%;
+  }
+  .flagGame .form h1 {
+    font-size: 22px;
+    margin-left: 32%;
+  }
+  .countriesSpan {
+    font-size: 12px;
+    width: 50%;
+  }
+}
+
+@media (max-width: 375px) {
+  .flagGame img {
+    width: 150px;
+    margin-left: 30%;
+  }
+  .point h1 {
+    font-size: 15px;
+    margin-left: 40%;
+    margin-top: 1%;
+  }
+  .flagGame .form h1 {
+    font-size: 15px;
+    margin-left: 27%;
+  }
+  .flagGame .form form {
+    font-size: 15px;
+    width: 50%;
+    margin-left: 20%;
+  }
+  .countriesSpan {
+    font-size: 8px;
+  }
+  .form input {
+    margin-left: 2%;
+  }
+}
