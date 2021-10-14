@@ -10,17 +10,6 @@ body,
   background-color: #223241;
 }
 
-.question-form {
-  margin-left: 15%;
-  margin-top: 15%;
-  width: 100%;
-}
-
-.capital-question-form {
-  margin-left: 15%;
-  margin-top: 15%;
-  width: 100%;
-}
 svg {
   background-color: #223241;
 }
@@ -28,6 +17,22 @@ svg {
 .WorldMap {
   text-align: center;
   background-color: #223241;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.capital-question-form {
+  margin-left: 15%;
+  margin-top: 15%;
+  width: 100%;
+}
+.capital-question-form input {
+  margin-top: 1%;
+}
+
+.information {
+  margin-left: 5%;
+  margin-top: 1%;
 }
 
 .point h1 {
@@ -56,16 +61,6 @@ svg {
   margin-left: 4px;
 }
 
-.capital-question-form input {
-  margin-left: 5%;
-  margin-top: 3%;
-}
-
-.information {
-  margin-left: 6%;
-  margin-top: 3%;
-}
-
 .form button {
   margin-left: 4px;
 }
@@ -88,12 +83,14 @@ svg {
   }
 
   .countriesSpan {
-    font-size: 12px;
-    width: 50%;
+    display: none;
   }
   .point h1 {
     font-size: 35px;
     margin-left: 37%;
+  }
+  .capitalContent {
+    display: none;
   }
 }
 
@@ -114,12 +111,14 @@ svg {
     margin-left: 32%;
   }
   .countriesSpan {
-    font-size: 12px;
-    width: 50%;
+    display: none;
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 455px) {
+  .flagGame {
+    margin-top: 10%;
+  }
   .flagGame img {
     width: 150px;
     margin-left: 30%;
@@ -135,13 +134,19 @@ svg {
   }
   .flagGame .form form {
     font-size: 15px;
-    width: 50%;
-    margin-left: 20%;
+    margin-top: 10%;
+    margin-left: 10%;
   }
   .countriesSpan {
-    font-size: 8px;
+    display: none;
   }
   .form input {
     margin-left: 2%;
+  }
+  header a {
+    font-size: 80%;
+  }
+  .WorldMap {
+    size: "200";
   }
 }

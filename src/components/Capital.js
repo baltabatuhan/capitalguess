@@ -105,9 +105,10 @@ function Capital() {
   return (
     <Layout className="height-100" style={{ backgroundColor: "#223241" }}>
       <Content
+        className="capitalContent"
         style={{
           display: "flex",
-          justifyContent: "center",
+
           backgroundColor: "#223241",
         }}
       >
@@ -116,14 +117,14 @@ function Capital() {
             backgroundColor="#223241"
             color="#D6AD60"
             styleFunction={stylingFunction}
-            size={1100}
+            size="responsive"
             data={countries}
             hrefFunction={getHref}
           />
         </div>
 
         <div className="capital-question-form">
-          <h1 style={{ color: "#D6AD60", marginLeft: "18%" }}>
+          <h1 style={{ color: "#D6AD60" }}>
             Point:{point}
           </h1>
           <h1 style={{ color: "#D6AD60", fontSize: "28px" }}>
@@ -147,7 +148,7 @@ function Capital() {
             </button>
           </form>
           <div className="information">
-            <MDBIcon icon="info" size="xs" style={{ paddingLeft: "8%" }}>
+            <MDBIcon icon="info" size="xs" >
               {" "}
               Click on the countries for get information
             </MDBIcon>
