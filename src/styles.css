@@ -14,13 +14,21 @@ svg {
   background-color: #223241;
 }
 
+.question-h {
+  color: #d6ad60;
+  font-size: 28px;
+}
+
 .WorldMap {
   text-align: center;
   background-color: #223241;
   margin-top: 5%;
   margin-left: 10%;
 }
-
+.capitalContent {
+  display: flex;
+  background-color: #223241;
+}
 .capital-question-form {
   margin-left: 15%;
   margin-top: 15%;
@@ -70,6 +78,9 @@ svg {
 }
 
 @media (max-width: 800px) {
+  .capitalContent {
+    display: none;
+  }
   .flagGame img {
     width: 250px;
     margin-left: 30%;
@@ -89,12 +100,43 @@ svg {
     font-size: 35px;
     margin-left: 37%;
   }
-  .capitalContent {
-    display: none;
+
+  .capital-button {
+    margin-top: 2%;
+    margin-left: 31%;
+  }
+  .capital-question-form input {
+    margin-left: 25%;
+  }
+  .capital-point {
+    margin-left: 32%;
+  }
+  .information {
+    margin-left: 23%;
   }
 }
 
-@media (max-width: 1096px) {
+@media (max-width: 1626px) {
+  .flagGame {
+    margin-top: 10%;
+  }
+  .capital-button {
+    margin-top: 2%;
+    margin-left: 30%;
+  }
+  .capital-question-form {
+    margin-left: 25%;
+  }
+  .capital-question-form input {
+    margin-left: 25%;
+  }
+  .capital-point {
+    margin-left: 32%;
+  }
+  .information {
+    margin-left: 23%;
+  }
+
   .flagGame img {
     width: 300px;
     margin-left: 30%;
@@ -113,11 +155,14 @@ svg {
   .countriesSpan {
     display: none;
   }
+  .capitalContent {
+    display: inline-block;
+  }
 }
 
-@media (max-width: 455px) {
+@media (max-width: 550px) {
   .flagGame {
-    margin-top: 10%;
+    margin-top: 30%;
   }
   .flagGame img {
     width: 150px;
@@ -146,7 +191,28 @@ svg {
   header a {
     font-size: 80%;
   }
-  .WorldMap {
-    size: "200";
+  .capital-question-form {
+    width: 80%;
+    margin-left: 15%;
+  }
+  .capital-question-form h1 {
+    font-size: 15px;
+    margin-left: 15%;
+  }
+  .information {
+    margin-left: 10%;
+    margin-top: 8%;
+    width: 100%;
+  }
+
+  .capital-button {
+    margin-top: 4%;
+    margin-left: 28%;
+  }
+  .capital-point {
+    margin-left: 28%;
+  }
+  .capital-question-form input {
+    margin-left: 15%;
   }
 }

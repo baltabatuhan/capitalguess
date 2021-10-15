@@ -2,10 +2,10 @@ import WorldMap from "react-svg-worldmap";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "../styles.css";
-import { Layout } from "antd";
+
 import { MDBIcon } from "mdb-react-ui-kit";
 
-const { Content } = Layout;
+
 
 function Capital() {
   const [point, setPoint] = useState(0);
@@ -103,15 +103,12 @@ function Capital() {
   };
 
   return (
-    <Layout className="height-100" style={{ backgroundColor: "#223241" }}>
-      <Content
-        className="capitalContent"
-        style={{
-          display: "flex",
+    <div className="height-100" style={{ backgroundColor: "#223241" }}>
 
-          backgroundColor: "#223241",
-        }}
-      >
+
+      <div className="capitalContent" style={{
+
+      }}>
         <div className="WorldMap">
           <WorldMap
             backgroundColor="#223241"
@@ -124,11 +121,11 @@ function Capital() {
         </div>
 
         <div className="capital-question-form">
-          <h1 style={{ color: "#D6AD60" }}>
-            Point:{point}
+          <h1 className="capital-point" style={{ color: "#D6AD60" }}>
+            Point: {point}
           </h1>
-          <h1 style={{ color: "#D6AD60", fontSize: "28px" }}>
-            What is the capital of {newCountries[counter].name} ?
+          <h1 style={{ color: "#D6AD60" }}>
+            What is the capital of {newCountries[counter].name}?
           </h1>
           <form onSubmit={handleSubmit}>
             <input
@@ -137,15 +134,17 @@ function Capital() {
               onChange={(e) => setCap(e.target.value)}
               style={{ backgroundColor: "#D6AD60", color: "#223241" }}
             />
-            <button type="submit" style={{ backgroundColor: "#D6AD60" }}>
-              Submit
-            </button>
-            <button
-              onClick={skip}
-              style={{ backgroundColor: "#D6AD60", color: "#223241" }}
-            >
-              Skip
-            </button>
+            <div className="capital-button">
+              <button type="submit" style={{ backgroundColor: "#D6AD60" }}>
+                Submit
+              </button>
+              <button
+                onClick={skip}
+                style={{ backgroundColor: "#D6AD60", color: "#223241" }}
+              >
+                Skip
+              </button>
+            </div>
           </form>
           <div className="information">
             <MDBIcon icon="info" size="xs" >
@@ -154,8 +153,10 @@ function Capital() {
             </MDBIcon>
           </div>
         </div>
-      </Content>
-    </Layout>
+      </div>
+
+
+    </div>
   );
 }
 
