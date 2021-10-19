@@ -18,6 +18,9 @@ svg {
   color: #d6ad60;
   font-size: 28px;
 }
+.capital-point {
+  margin-left: 15%;
+}
 
 .WorldMap {
   text-align: center;
@@ -31,15 +34,12 @@ svg {
 }
 .capital-question-form {
   margin-left: 15%;
-  margin-top: 15%;
+  margin-top: 10%;
   width: 100%;
-}
-.capital-question-form input {
-  margin-top: 1%;
 }
 
 .information {
-  margin-left: 5%;
+  margin-left: 10%;
   margin-top: 1%;
 }
 
@@ -66,7 +66,14 @@ svg {
 }
 
 .capital-question-form button {
-  margin-left: 4px;
+  margin-top: 1%;
+}
+.capital-button {
+  margin-left: 16%;
+}
+.capital-question-form input {
+  margin-top: 1%;
+  margin-left: 12%;
 }
 
 .form button {

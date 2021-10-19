@@ -99,7 +99,7 @@ const Flag = () => {
           <div className="countriesSpan" style={{ fontWeight: "bold", width: "70%", marginLeft: "15%", marginTop: "3%" }}>
             {newCountries
               .map((name) => {
-                console.log({ ...name });
+
                 return <span
                   className="flex-sm-nowrap"
                   key={name.name}

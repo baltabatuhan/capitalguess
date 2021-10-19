@@ -84,7 +84,7 @@ function Capital() {
       setCounter(Math.floor(Math.random() * newCountries.length));
       setPoint(point + 10);
       newCountries[counter].value = newCountries[counter].value + 1;
-      console.log(newCountries);
+
       setCap("");
     }
   };
@@ -95,11 +95,7 @@ function Capital() {
 
   const skip = () => {
     setCounter(Math.floor(Math.random() * newCountries.length));
-    console.log(
-      newCountries[counter].name,
-      newCountries[counter].capital,
-      "check"
-    );
+
   };
 
   return (
