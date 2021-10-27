@@ -14,6 +14,11 @@ svg {
   background-color: #223241;
 }
 
+.tools button {
+  background-color: #d6ad60;
+  margin: 2px;
+}
+
 .question-h {
   color: #d6ad60;
   font-size: 28px;

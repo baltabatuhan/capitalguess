@@ -1,11 +1,11 @@
 import WorldMap from "react-svg-worldmap";
 import axios from "axios";
+import React from "react";
 import { useEffect, useState } from "react";
 import "../styles.css";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 import { MDBIcon } from "mdb-react-ui-kit";
-
-
 
 function Capital() {
   const [point, setPoint] = useState(0);
@@ -95,32 +95,60 @@ function Capital() {
 
   const skip = () => {
     setCounter(Math.floor(Math.random() * newCountries.length));
-
   };
 
   return (
     <div className="height-100" style={{ backgroundColor: "#223241" }}>
-
-
-      <div className="capitalContent" style={{
-
-      }}>
+      <div className="capitalContent" style={{}}>
         <div className="WorldMap">
-          <WorldMap
-            backgroundColor="#223241"
-            color="#D6AD60"
-            styleFunction={stylingFunction}
-            size="responsive"
-            data={countries}
-            hrefFunction={getHref}
-          />
+          <TransformWrapper
+            defaultScale={1}
+            defaultPositionX={200}
+            defaultPositionY={100}
+          >
+            {({
+              zoomIn,
+              zoomOut,
+              resetTransform,
+              positionX,
+              positionY,
+              ...rest
+            }) => (
+              <div>
+                <TransformComponent>
+                  <WorldMap
+                    backgroundColor="#223241"
+                    color="#D6AD60"
+                    styleFunction={stylingFunction}
+                    size="responsive"
+                    data={countries}
+                    hrefFunction={getHref}
+                  />
+                </TransformComponent>
+                <div className="tools">
+                  <button onClick={() => zoomIn()}>
+                    <MDBIcon icon="search-plus" />
+                  </button>
+                  <button onClick={() => zoomOut()}>
+                    <MDBIcon icon="search-minus" />
+                  </button>
+                  <button onClick={() => resetTransform()}>
+                    <MDBIcon icon="arrows-alt" />
+                  </button>
+                </div>
+              </div>
+            )}
+          </TransformWrapper>
         </div>
 
         <div className="capital-question-form">
-          <h1 className="capital-point" style={{ color: "#D6AD60" }}>
+          <h1
+            className="capital-point"
+            style={{ color: "#D6AD60", fontSize: "30px" }}
+          >
             Point: {point}
           </h1>
-          <h1 style={{ color: "#D6AD60" }}>
+          <h1 style={{ color: "#D6AD60", fontSize: "30px" }}>
             What is the capital of {newCountries[counter].name}?
           </h1>
           <form onSubmit={handleSubmit}>
@@ -143,15 +171,13 @@ function Capital() {
             </div>
           </form>
           <div className="information">
-            <MDBIcon icon="info" size="xs" >
+            <MDBIcon icon="info" size="xs">
               {" "}
               Click on the countries for get information
             </MDBIcon>
           </div>
         </div>
       </div>
-
-
     </div>
   );
 }
