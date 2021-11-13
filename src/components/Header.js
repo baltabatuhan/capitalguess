@@ -10,11 +10,21 @@ function Header() {
         {/* <Link to="/">
             <img src={logo} alt="Zaza Logo" />
           </Link> */}
-        <Menu theme="dark" mode="horizontal" className="header-menu" style={{ backgroundColor: "#D6AD60" }}>
-          <Menu.Item key="1" style><Link to="/">Capital Game</Link></Menu.Item>
-          <Menu.Item key="2"><Link to="/flagGame">Flag Game</Link></Menu.Item>
-
-
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          className="header-menu"
+          style={{ backgroundColor: "#D6AD60" }}
+        >
+          <Menu.Item key="1" style>
+            <Link to="/">Capital Game</Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="/flagGame">Flag Game</Link>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <Link to="/countryGame">Country Game</Link>
+          </Menu.Item>
         </Menu>
       </AntHeader>
     </Layout>
