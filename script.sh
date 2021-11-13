@@ -1,8 +1,5 @@
-@echo off
-npm run build
-pause
 git status
 git add .
-set /p message="Enter Commit Message: "
-git commit -m "%message%"
+export PS1="MyTestPrompt> "
+git commit -m PS1
 git push origin master
