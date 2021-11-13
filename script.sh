@@ -1,5 +1,5 @@
 git status
 git add .
-export PS1="MyTestPrompt> "
-git commit -m PS1
+read -p "Enter Your Commit Message: " x
+git commit -m ${x}
 git push origin master
